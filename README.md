@@ -18,7 +18,7 @@ Add it in your root build.gradle at the end of repositories:
 Step 2. Add the dependency
 
 	dependencies {
-	        implementation 'com.github.jp5201314:Province_City_Zone:1.0.1'
+	        implementation 'com.github.jp5201314:Province_City_Zone:1.0.4'
 	}
   
   maven:
@@ -38,5 +38,20 @@ Step 2. Add the dependency
 	<dependency>
 	    <groupId>com.github.jp5201314</groupId>
 	    <artifactId>Province_City_Zone</artifactId>
-	    <version>1.0.1</version>
+	    <version>1.0.4</version>
 	</dependency>
+
+
+实例代码：
+需传入上下问对象和相应的View对象:
+
+     popupWindow = ChooseAreaPopup.getInstance(context,view);
+        if (!popupWindow.isShowing()){
+            popupWindow.showPupopWindow(new GainAreaCallBack() {
+                @Override
+                public void gainArea(Province province, City city, Districts districts) {
+                    Logger.d(province.getProvinceName()+"\n"+city.getCityName()+"\n"+districts.getDistrictsName());
+                    Logger.d(province.getId()+"-"+city.getCityId()+"-"+districts.getDistrictsId());
+                }
+            });
+        }
