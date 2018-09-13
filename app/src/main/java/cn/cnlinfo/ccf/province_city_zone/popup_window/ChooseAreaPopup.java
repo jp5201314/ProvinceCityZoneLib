@@ -90,6 +90,17 @@ public class ChooseAreaPopup {
     }
 
 
+    public boolean isShowing(){
+        if (mPopupWindow != null){
+            if (mPopupWindow.isShowing()){
+                return true;
+            }else {
+                return false;
+            }
+        }
+        return false;
+    }
+
     //设置是否关闭PupopWindow
     public void closePupopWindow(boolean isClose){
         if (isClose){

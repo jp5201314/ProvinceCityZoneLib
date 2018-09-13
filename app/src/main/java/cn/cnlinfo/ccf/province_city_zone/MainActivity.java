@@ -16,7 +16,7 @@ import cn.cnlinfo.ccf.province_city_zone.popup_window.ChooseAreaPopup;
 
 
 public class MainActivity extends AppCompatActivity {
-    private PopupWindow popupWindow;
+    private ChooseAreaPopup popupWindow;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,20 +26,22 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void chooseArea(View view){
-        popupWindow = ChooseAreaPopup.getInstance(this,view).showPupopWindow(new GainAreaCallBack() {
-            @Override
-            public void gainArea(Province province, City city, Districts districts) {
-                Logger.d(province.getProvinceName()+"\n"+city.getCityName()+"\n"+districts.getDistrictsName());
-                Logger.d(province.getId()+"-"+city.getCityId()+"-"+districts.getDistrictsId());
-            }
-        });
+
+        popupWindow = ChooseAreaPopup.getInstance(this,view);
+        if (!popupWindow.isShowing()){
+            popupWindow.showPupopWindow(new GainAreaCallBack() {
+                @Override
+                public void gainArea(Province province, City city, Districts districts) {
+
+                }
+            });
+        }
+
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        if (popupWindow!=null&&popupWindow.isShowing()){
-            popupWindow.dismiss();
-        }
+       popupWindow.closePupopWindow(true);
     }
 }
