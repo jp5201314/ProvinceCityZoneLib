@@ -99,6 +99,16 @@ public class ChooseAreaPopup {
     }
 
 
+    public boolean isShowing(){
+        if (mPopupWindow != null){
+            if (mPopupWindow.isShowing()){
+                return true;
+            }else {
+                return false;
+            }
+        }
+        return false;
+    }
     //初始化控件点击事件监听
     private void initAndStartListener() {
         mBtnCancel.setOnClickListener(new View.OnClickListener() {
