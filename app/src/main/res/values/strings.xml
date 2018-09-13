@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Province_City_Zone</string>
+
+    <style name="text_4d8cd6_15">
+        <item name="android:textColor">#4d8cd6</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+    <style name="text_colorPrimaryDark_15">
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+    <style name="text_0e1214_15">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">#0e1214</item>
+    </style>
+</resources>
